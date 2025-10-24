@@ -363,12 +363,10 @@ Unless overridden with [`CMAKE_RUNTIME_OUTPUT_DIRECTORY`](https://cmake.org/cmak
 ```bash
 ./examples/isolated/initialising_paulis_c
 ```
-as elaborated upon in [`launch.md`](launch.md#examples).
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+as elaborated upon in [`launch.md`](#launch_examples).
 
 > [!NOTE]  
-> <!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-> As [above](compile.md#compile_optimising), Windows users should specify additional build parameter `--config Release` which will cause the executables to be contained in an additional final `\Release\` subdirectory. Executables are also suffixed with `.exe`, e.g.
+> As [above](#compile_optimising), Windows users should specify additional build parameter `--config Release` which will cause the executables to be contained in an additional final `\Release\` subdirectory. Executables are also suffixed with `.exe`, e.g.
 > ```
 > \examples\isolated\Release\initialising_paulis_c.exe
 > ```
@@ -393,8 +391,7 @@ cmake .. -D ENABLE_TESTING=ON
 # build
 cmake --build .
 ```
-This will compile an executable `tests` in subdirectory `build/tests/`, which can be run as explained in [`launch.md`](launch.md#tests).
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+This will compile an executable `tests` in subdirectory `build/tests/`, which can be run as explained in [`launch.md`](#launch_tests).
 
 
 ### v3 {#compile_v3}
@@ -407,8 +404,7 @@ cmake .. -D ENABLE_TESTING=ON -D ENABLE_DEPRECATED_API=ON
 # build
 cmake --build .
 ```
-and run as explained in [`launch.md`](launch.md#v3).
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+and run as explained in [`launch.md`](#launch_v3).
 
 
 
@@ -419,8 +415,7 @@ and run as explained in [`launch.md`](launch.md#v3).
 
 Multithreading allows multiple cores of a CPU, or even multiple connected CPUs, to cooperatively perform and ergo accelerate QuEST's expensive functions. Practically all modern computers have the capacity for, and benefit from, multithreading. Note it requires that the CPUs have shared memory (such as through [NUMA](https://learn.microsoft.com/en-us/windows/win32/procthread/numa-support)) and so ergo live in the same machine. CPUs on _different_ machines, connected via a network, can be parallelised over using [distribution](#compile_distribution).
 
-QuEST uses [OpenMP](https://www.openmp.org/) to perform multithreading, so accelerating QuEST over multiple CPUs or cores requires a compiler integrated with OpenMP. This is true of almost all major compilers - see a list of tested compilers in [`compilers.md`](compilers.md#cpu).
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+QuEST uses [OpenMP](https://www.openmp.org/) to perform multithreading, so accelerating QuEST over multiple CPUs or cores requires a compiler integrated with OpenMP. This is true of almost all major compilers - see a list of tested compilers in [`compilers.md`](#compilers_cpu).
 
 
 > [!IMPORTANT]  
@@ -443,8 +438,7 @@ cmake --build .
 ```
 This is in fact the default behaviour!
 
-The number of threads over which to parallelise QuEST's execution is chosen through setting environment variables, like [`OMP_NUM_THREADS`](https://www.openmp.org/spec-html/5.0/openmpse50.html), immediately before execution. See [`launch.md`](launch.md#multithreading) for a general guide on multithreaded deployment.
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+The number of threads over which to parallelise QuEST's execution is chosen through setting environment variables, like [`OMP_NUM_THREADS`](https://www.openmp.org/spec-html/5.0/openmpse50.html), immediately before execution. See [`launch.md`](#launch_multithreading) for a general guide on multithreaded deployment.
 
 
 
@@ -495,8 +489,7 @@ Building then proceeds as normal, e.g.
 cmake --build . --parallel
 ```
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-The compiled executable can be run like any other, though the GPU behaviour can be prior configured with environment variables. See [`launch.md`](launch.md#gpu-acceleration) for a general guide on GPU-accelerated deployment.
+The compiled executable can be run like any other, though the GPU behaviour can be prior configured with environment variables. See [`launch.md`](#launch_gpu-acceleration) for a general guide on GPU-accelerated deployment.
 
 
 ### AMD {#compile_amd}
@@ -523,9 +516,8 @@ cmake .. -D ENABLE_HIP=ON -D CMAKE_HIP_ARCHITECTURES=gfx90a
 ```
 
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
 > [!CAUTION]
-> Setting the wrong LLVM target name can cause silently erroneous results. Always run the [unit tests](launch.md#tests) after compiling for the first time to confirm it was set correctly.
+> Setting the wrong LLVM target name can cause silently erroneous results. Always run the [unit tests](#launch_tests) after compiling for the first time to confirm it was set correctly.
 
 
 Building then proceeds as normal, e.g.
@@ -534,8 +526,7 @@ Building then proceeds as normal, e.g.
 cmake --build . --parallel
 ```
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-The compiled executable can be run like any other, though the GPU behaviour can be prior configured with environment variables. See [`launch.md`](launch.md#gpu-acceleration) for a general guide on GPU-accelerated deployment.
+The compiled executable can be run like any other, though the GPU behaviour can be prior configured with environment variables. See [`launch.md`](launch_gpu-acceleration) for a general guide on GPU-accelerated deployment.
 
 
 
@@ -570,8 +561,7 @@ cmake .. -D ENABLE_CUDA=ON -D CMAKE_CUDA_ARCHITECTURES=80 -D ENABLE_CUQUANTUM=ON
 cmake --build . --parallel
 ```
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-No other changes are necessary, nor does cuQuantum affect [hybridising](#compile_multi-gpu) GPU acceleration and distribution. Launching the executable is the same as in the above section. See [`launch.md`](launch.md#gpu-acceleration).
+No other changes are necessary, nor does cuQuantum affect [hybridising](#launch_multi-gpu) GPU acceleration and distribution. Launching the executable is the same as in the above section. See [`launch.md`](#launch_gpu-acceleration).
 
 
 
@@ -584,8 +574,7 @@ No other changes are necessary, nor does cuQuantum affect [hybridising](#compile
 Because statevectors grow exponentially with the number of simulated qubits, it is easy to run out of memory. In such settings, we may seek to use _distribution_ whereby multiple cooperating machines on a network each store a tractable partition of the state. Distribution can also be useful to speed up our simulations, when the benefit of additional parallelisation outweighs the inter-machine communication penalties.
 
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-Enabling distribution requires compiling QuEST with an MPI compiler, such as those listed in [`compilers.md`](compilers.md#comm). Test your compiler is working via
+Enabling distribution requires compiling QuEST with an MPI compiler, such as those listed in [`compilers.md`](#compilers_comm). Test your compiler is working via
 ```bash
 mpicxx --version
 ```
@@ -602,8 +591,7 @@ cmake .. -D ENABLE_DISTRIBUTION=ON
 cmake --build . --parallel
 ```
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-Note that distributed executables are launched in a distinct way to the other deployment mods, as explained in [`launch.md`](launch.md#distribution),
+Note that distributed executables are launched in a distinct way to the other deployment mods, as explained in [`launch.md`](#launch_distribution),
 
 
 

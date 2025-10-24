@@ -12,9 +12,8 @@ QuEST is included into a `C` or `C++` project via
 #include "quest.h"
 ```
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
 > [!TIP]
-> Some of QuEST's deprecated `v3` API can be accessed by specifying `ENABLE_DEPRECATED_API` when [compiling](/docs/compile.md#v3), or defining it before import, i.e. 
+> Some of QuEST's deprecated `v3` API can be accessed by specifying `ENABLE_DEPRECATED_API` when [compiling](#compile_v3), or defining it before import, i.e. 
 > ```cpp
 > #define ENABLE_DEPRECATED_API 1
 > #include "quest.h"
@@ -421,8 +420,7 @@ applyPhaseGadget(qureg, targets, 3, angle);
 ```
 
 > [!NOTE]  
-> Notice the type of `angle` is [`qreal`](https://quest-kit.github.io/QuEST/group__types.html#ga2d479c159621c76ca6f96abe66f2e69e) rather than the expected `double`. This is a precision agnostic alias for a floating-point, real scalar which allows you to recompile QuEST with a varying [precision](/docs/compile.md#precision) with no modifications to your code. 
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+> Notice the type of `angle` is [`qreal`](https://quest-kit.github.io/QuEST/group__types.html#ga2d479c159621c76ca6f96abe66f2e69e) rather than the expected `double`. This is a precision agnostic alias for a floating-point, real scalar which allows you to recompile QuEST with a varying [precision](#compile_precision) with no modifications to your code. 
 
 
 ### controls {#tutorial_controls}

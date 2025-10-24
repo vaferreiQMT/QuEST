@@ -47,8 +47,7 @@ Launching your [compiled](compile.md) QuEST application can be as straightforwar
 
 ## Examples {#launch_examples}
 
-> See [`compile.md`](compile.md#examples) for instructions on compiling the examples.
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+> See [`compile.md`](#compile_examples) for instructions on compiling the examples.
 
 
 The example source codes are located in [`examples/`](/examples/) with structure
@@ -72,8 +71,7 @@ where `file.c` and `file.cpp` respectively demo QuEST's `C11` and `C++14` interf
  - `tutorials/` which contains guides with step-by-step explanations.
 
 
-These files are [compiled](compile.md#examples) into executables of the same name, respectively suffixed with `_c` or `_cpp`, and (by default) are saved in subdirectories of `build` which mimic the structure of `examples/`. E.g.
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+These files are [compiled](#compile_examples) into executables of the same name, respectively suffixed with `_c` or `_cpp`, and (by default) are saved in subdirectories of `build` which mimic the structure of `examples/`. E.g.
 ```
 build/
     examples/
@@ -90,9 +88,8 @@ build/
 ```
 
 > [!NOTE]  
-> <!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
 > On Windows, the executables are located in `\Release\` subdirectories, assuming the parameter 
-> `--config Release` was specified during compilation (see [compiled](compile.md#compile_optimising)).
+> `--config Release` was specified during compilation (see [compiled](#compile_optimising)).
 
 Most of these executables can be run directly from within `build`, e.g.
 ```bash
@@ -124,8 +121,7 @@ Must pass single cmd-line argument:
 
 ## Tests {#launch_tests}
 
-> See [`compile.md`](compile.md#tests) for instructions on compiling the `v4` and `v3` unit tests.
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+> See [`compile.md`](#compile_tests) for instructions on compiling the `v4` and `v3` unit tests.
 
 
 ### v4 {#launch_v4}
@@ -167,8 +163,7 @@ or specific test sections and subsections:
 ./tests/tests -c "validation" -c "matrix uninitialised"
 ```
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-If the tests were compiled with [distribution enabled](compile.md#distribution), they can distributed via
+If the tests were compiled with [distribution enabled](#compile_distribution), they can distributed via
 ```bash
 mpirun -np 8 ./tests/tests
 ```
@@ -217,8 +212,7 @@ The `v4` unit tests make use of the below, optional environment variables to con
 
 ### v3 {#launch_v3}
 
-<!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-The deprecated tests, when [compiled](compile.md#v3), can be run from the `build` directory via
+The deprecated tests, when [compiled](#compile_v3), can be run from the `build` directory via
 ```bash
 ./tests/deprecated/dep_tests
 ```
@@ -259,8 +253,7 @@ Note the unit tests in the preceding section accept additional environment varia
 
 > [!NOTE]
 > Parallelising QuEST over multiple cores and CPUs requires first compiling with 
-> multithreading enabled, as detailed in [`compile.md`](compile.md#multithreading). 
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+> multithreading enabled, as detailed in [`compile.md`](#compile_multithreading). 
 
 
 ### Choosing threads {#launch_choosing-threads}
@@ -356,8 +349,7 @@ and never specifies [`schedule`](https://rookiehpc.org/openmp/docs/schedule/inde
 ## GPU-acceleration {#launch_gpu-acceleration}
 
 > [!NOTE]
-> Using GPU-acceleration requires first compiling QuEST with `CUDA` or `HIP` enabled (to utilise NVIDIA and AMD GPUs respectively) as detailed in [`compile.md`](compile.md#gpu-acceleration).
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+> Using GPU-acceleration requires first compiling QuEST with `CUDA` or `HIP` enabled (to utilise NVIDIA and AMD GPUs respectively) as detailed in [`compile.md`](#compile_gpu-acceleration).
 
 
 ### Launching {#launch_launching}
@@ -438,8 +430,7 @@ However, it _does_ mean codes which seeks to benchmark QuEST must be careful to 
 
 > [!NOTE]
 > Distributing QuEST over multiple machines requires first compiling with 
-> distribution enabled, as detailed in [`compile.md`](compile.md#distribution). 
-<!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
+> distribution enabled, as detailed in [`compile.md`](#compile_distribution). 
 
 > [!IMPORTANT]
 > Simultaneously using distribution _and_ GPU-acceleration introduces additional considerations detailed in the [proceeding section](#launch_multi-gpu).
