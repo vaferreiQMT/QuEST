@@ -1042,7 +1042,6 @@ INPUT                  = . \
                          ./docs/launch.md \
                          ./docs/contributing.md \
                          ./docs/architecture.md \
-                         ./docs/styleguide.md \
                          ./docs \
                          ./examples/README.md \
                          ./examples \
