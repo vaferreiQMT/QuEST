@@ -164,10 +164,7 @@ QuEST supports:
 
 ---------------------------------
 
-<!-- permit doxygen to reference section -->
-<a id="main_documentation"></a>
-
-## 📖  Documentation
+## 📖  Documentation  {#main_documentation}
 
 > [!IMPORTANT]
 > QuEST v4's documentation is still under construction!

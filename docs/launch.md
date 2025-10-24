@@ -45,10 +45,7 @@ Launching your [compiled](compile.md) QuEST application can be as straightforwar
 ---------------------
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_examples"></a>
-
-## Examples
+## Examples {#launch_examples}
 
 > See [`compile.md`](compile.md#examples) for instructions on compiling the examples.
 <!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
@@ -125,18 +122,13 @@ Must pass single cmd-line argument:
 ---------------------
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_tests"></a>
-
-## Tests
+## Tests {#launch_tests}
 
 > See [`compile.md`](compile.md#tests) for instructions on compiling the `v4` and `v3` unit tests.
 <!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
 
-<!-- permit doxygen to reference section -->
-<a id="launch_v4"></a>
 
-### v4
+### v4 {#launch_v4}
 
 QuEST's unit and integration tests are compiled into executable `tests` within the `tests/` subdirectory, and can be directly run from within the `build` folder via
 ```bash
@@ -223,12 +215,7 @@ The `v4` unit tests make use of the below, optional environment variables to con
 | `TEST_ALL_DEPLOYMENTS` | `1` | Whether unit tests will be run using all possible deployment combinations (i.e. OpenMP, CUDA, MPI) in-turn (`=1`), or only once using all available deployments simultaneously (`=0`). |
 
 
-
-
-<!-- permit doxygen to reference section -->
-<a id="launch_v3"></a>
-
-### v3
+### v3 {#launch_v3}
 
 <!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
 The deprecated tests, when [compiled](compile.md#v3), can be run from the `build` directory via
@@ -254,10 +241,8 @@ ctest
 
 ---------------------
 
-<!-- permit doxygen to reference section -->
-<a id="launch_configuring"></a>
 
-## Configuring
+## Configuring {#launch_configuring}
 
 QuEST execution can be configured prior to runtime using the below [environment variables](https://en.wikipedia.org/wiki/Environment_variable).
 
@@ -270,10 +255,7 @@ Note the unit tests in the preceding section accept additional environment varia
 ---------------------
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_multithreading"></a>
-
-## Multithreading
+## Multithreading {#launch_multithreading}
 
 > [!NOTE]
 > Parallelising QuEST over multiple cores and CPUs requires first compiling with 
@@ -281,10 +263,7 @@ Note the unit tests in the preceding section accept additional environment varia
 <!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_choosing-threads"></a>
-
-### Choosing threads
+### Choosing threads {#launch_choosing-threads}
 
 The number of [threads](https://www.openmp.org/spec-html/5.0/openmpsu1.html) to use is decided before launching the compiled executable, using the [`OMP_NUM_THREADS`](https://www.openmp.org/spec-html/5.0/openmpse50.html) environment variable.
 
@@ -309,12 +288,7 @@ It is prudent to choose as many threads as your CPU(s) have total hardware threa
 > When running [distributed](#launch_distribution), variable `OMP_NUM_THREADS` specifies the number of threads _per node_ and so should ordinarily be the number of hardware threads (or cores) _per machine_.
 
 
-
-
-<!-- permit doxygen to reference section -->
-<a id="launch_monitoring-utilisation"></a>
-
-### Monitoring utilisation
+### Monitoring utilisation {#launch_monitoring-utilisation}
 
 
 The availability of multithreaded deployment can also be checked at runtime using [`reportQuESTEnv()`](https://quest-kit.github.io/QuEST/group__environment.html#ga08bf98478c4bf21b0759fa7cd4a97496), which outputs something like:
@@ -342,11 +316,7 @@ Note however that QuEST will not leverage multithreading at runtime when either:
 Usage of multithreading can be (inadvisably) forced using [`createForcedQureg()`](https://quest-kit.github.io/QuEST/group__qureg__create.html#ga619bbba1cbc2f7f9bbf3d3b86b3f02be) or [`createCustomQureg()`](https://quest-kit.github.io/QuEST/group__qureg__create.html#ga849971f43e246d103da1731d0901f2e6).
 
 
-
-<!-- permit doxygen to reference section -->
-<a id="launch_improving-performance"></a>
-
-### Improving performance
+### Improving performance {#launch_improving-performance}
 
 Performance may be improved by setting other [OpenMP variables](https://www.openmp.org/spec-html/5.0/openmpch6.html). Keep in mind that for large `Qureg`, QuEST's runtime is dominated by the costs of modifying large memory structures during long, uninterrupted loops: namely the updating of statevector amplitudes. Some sensible settings include
 
@@ -383,20 +353,14 @@ and never specifies [`schedule`](https://rookiehpc.org/openmp/docs/schedule/inde
 ---------------------
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_gpu-acceleration"></a>
-
-## GPU-acceleration
+## GPU-acceleration {#launch_gpu-acceleration}
 
 > [!NOTE]
 > Using GPU-acceleration requires first compiling QuEST with `CUDA` or `HIP` enabled (to utilise NVIDIA and AMD GPUs respectively) as detailed in [`compile.md`](compile.md#gpu-acceleration).
 <!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_launching"></a>
-
-### Launching
+### Launching {#launch_launching}
 
 The compiled executable is launched like any other, via
 ```bash
@@ -406,12 +370,7 @@ The compiled executable is launched like any other, via
 Using _multiple_ available GPUs, regardless of whether they are local or distributed, is done through additionally enabling [distribution](#launch_multi-gpu).
 
 
-
-
-<!-- permit doxygen to reference section -->
-<a id="launch_monitoring"></a>
-
-### Monitoring
+### Monitoring {#launch_monitoring}
 
 
 To runtime check whether GPU-acceleration was compiled and is being actively utilised, call [`reportQuESTEnv()`](https://quest-kit.github.io/QuEST/group__environment.html#ga08bf98478c4bf21b0759fa7cd4a97496).
@@ -452,10 +411,7 @@ Usage of GPU-acceleration can be (inadvisably) forced using [`createForcedQureg(
 
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_configuring-1"></a>
-
-### Configuring
+### Configuring {#launch_configuring-1}
 
 There are a plethora of [environment variables](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables) which be used to control the execution on [NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#env-vars) and [AMD](https://rocm.docs.amd.com/projects/HIP/en/docs-develop/reference/env_variables.html) GPUs. We highlight only some below.
 
@@ -466,10 +422,7 @@ There are a plethora of [environment variables](https://askubuntu.com/questions/
 
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_benchmarking"></a>
-
-### Benchmarking
+### Benchmarking {#launch_benchmarking}
 
 Beware that the CPU dispatches tasks to the GPU _asynchronously_. Control flow returns immediately to the CPU, which will proceed to other duties (like dispatching the next several quantum operation's worth of instructions to the GPU) while the GPU undergoes independent computation (goes _brrrrr_).
 This has no consequence to the user who uses only the QuEST API, which will automatically synchronise the CPU and GPU when necessary (like inside functions [`calcTotalProb()`](https://quest-kit.github.io/QuEST/group__calc__properties.html#gab082910d33473ec29e1d5852943de468)).
@@ -480,11 +433,7 @@ However, it _does_ mean codes which seeks to benchmark QuEST must be careful to 
 ---------------------
 
 
-
-<!-- permit doxygen to reference section -->
-<a id="launch_distribution"></a>
-
-## Distribution
+## Distribution {#launch_distribution}
 
 
 > [!NOTE]
@@ -496,11 +445,7 @@ However, it _does_ mean codes which seeks to benchmark QuEST must be careful to 
 > Simultaneously using distribution _and_ GPU-acceleration introduces additional considerations detailed in the [proceeding section](#launch_multi-gpu).
 
 
-
-<!-- permit doxygen to reference section -->
-<a id="launch_launching-1"></a>
-
-### Launching
+### Launching {#launch_launching-1}
 
 A distributed QuEST executable called `myexec` can be launched and distributed over (e.g.) `32` nodes using [`mpirun`](https://www.open-mpi.org/doc/v4.1/man1/mpirun.1.php) with the 
 ```bash
@@ -536,21 +481,14 @@ It is sometimes convenient (mostly for testing) to deploy QuEST across more node
 mpirun -np 1024 --oversubscribe ./mytests
 ```
 
-
-<!-- permit doxygen to reference section -->
-<a id="launch_configuring-2"></a>
-
-### Configuring
+### Configuring {#launch_configuring-2}
 
 
 > TODO:
 > - detail environment variables
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_benchmarking-1"></a>
-
-### Benchmarking
+### Benchmarking {#launch_benchmarking-1}
 
 QuEST strives to reduce inter-node communication when performing distributed simulation, which can otherwise dominate runtime. Between these rare communications, nodes work in complete independence and are likely to desynchronise, especially when performing operations with non-uniform loads. In fact, many-controlled quantum gates are skipped by non-participating nodes which would otherwise wait idly!
 
@@ -564,10 +502,7 @@ It is ergo always prudent to explicitly call [`syncQuESTEnv()`](https://quest-ki
 ---------------------
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_multi-gpu"></a>
-
-## Multi-GPU
+## Multi-GPU {#launch_multi-gpu}
 
 
 > TODO:
@@ -594,10 +529,7 @@ It is ergo always prudent to explicitly call [`syncQuESTEnv()`](https://quest-ki
 ---------------------
 
 
-<!-- permit doxygen to reference section -->
-<a id="launch_supercomputers"></a>
-
-## Supercomputers
+## Supercomputers {#launch_supercomputers}
 
 A QuEST executable is launched like any other in supercomputing settings, including when distributed.
 For convenience however, we offer some example [SLURM](https://slurm.schedmd.com) and [PBS](https://www.openpbs.org/) job submission scripts to deploy QuEST in various configurations. These examples assume QuEST and the user source have already been compiled, as guided in [`compile.md`](compile.md).
@@ -608,11 +540,7 @@ For convenience however, we offer some example [SLURM](https://slurm.schedmd.com
 > your own supercomputing facility differs!
 
 
-
-<!-- permit doxygen to reference section -->
-<a id="launch_slurm"></a>
-
-### SLURM
+### SLURM {#launch_slurm}
 
 4 machines each with 8 CPUs:
 ```bash
@@ -643,11 +571,7 @@ srun ./myexec
 ```
 
 
-
-<!-- permit doxygen to reference section -->
-<a id="launch_pbs"></a>
-
-### PBS
+### PBS {#launch_pbs}
 
 4 machines each with 8 CPUs:
 ```bash
