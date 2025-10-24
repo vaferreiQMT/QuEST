@@ -25,11 +25,9 @@ To get started with QuEST, check out
 - 🎓  [`tutorial.md`](tutorial.md) for an introductory tutorial.
 - 📋  [API](https://quest-kit.github.io/QuEST/group__api.html) for the documentation of each function.
 
-Interested in contributing? Then check out:
+Interested in contributing? Check out
 
-- ❤️  [`contributing.md`](contributing.md) to learn how to make a pull request.
-- 🏗️  [`architecture.md`](architecture.md) to understand the code structure.
-- 🎨  [`styleguide.md`](styleguide.md) for some tips on writing neat code.
+- ❤️  [`contributing.md`](contributing.md) for how to help improve QuEST.
 
 Want to learn how what's under the hood? Read the
 - 🏆  [whitepaper](https://www.nature.com/articles/s41598-019-47174-9) which featured in Scientific Report's [Top 100 in Physics](https://www.nature.com/collections/ecehgdfcba/)

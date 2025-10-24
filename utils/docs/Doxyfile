@@ -1041,7 +1041,6 @@ INPUT                  = . \
                          ./docs/cmake.md \
                          ./docs/launch.md \
                          ./docs/contributing.md \
-                         ./docs/architecture.md \
                          ./docs \
                          ./examples/README.md \
                          ./examples \
