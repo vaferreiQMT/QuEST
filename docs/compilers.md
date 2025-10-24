@@ -13,22 +13,15 @@ This page details the specialised compilers necessary to enable specific feature
 known to be compatible with QuEST.
 
 
-<!-- 
-    we are using explicit <a>, rather than markdown links,
-    for Doxygen compatibility. It cannot handle [](#sec)
-    links, and its <a> anchors are not scoped to files, so
-    we here prefix each name with the filename. Grr!
--->
-
 > **TOC**:
-> - <a href="#compilers_frontend">Frontend</a>
-> - <a href="#compilers_backend">Backend</a>
->    * <a href="#compilers_comm">Comm</a>
->    * <a href="#compilers_cpu">cpu</a>
->    * <a href="#compilers_gpu">gpu</a>
->    * <a href="#compilers_comm-gpu">comm + gpu</a>
->    * <a href="#compilers_gpu-cuquantum">gpu + cuquantum</a>
-> - <a href="#compilers_tests">Tests</a>
+> - [Frontend](#compilers_frontend)
+> - [Backend](#compilers_backend)
+>    * [Comm](#compilers_comm)
+>    * [cpu](#compilers_cpu)
+>    * [gpu](#compilers_gpu)
+>    * [comm + gpu](#compilers_comm-gpu)
+>    * [gpu + cuquantum](#compilers_gpu-cuquantum)
+> - [Tests](#compilers_tests)
 
 > **See also**:
 > - [`compile.md`](compile.md) for a guide to compiling QuEST.

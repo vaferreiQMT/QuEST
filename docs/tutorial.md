@@ -35,29 +35,22 @@ Simulation typically proceeds as:
 Of course, the procedure is limited only by the programmers imagination `¯\_(ツ)_/¯` Let's see an example of these steps below.
 
 
-<!-- 
-    we are using explicit <a>, rather than markdown links,
-    for Doxygen compatibility. It cannot handle [](#sec)
-    links, and its <a> anchors are not scoped to files, so
-    we here prefix each name with the filename. Grr!
--->
-
 > **TOC**:
-> - <a href="#tutorial_initialise-the-environment">Initialise the environment</a>
-> - <a href="#tutorial_configure-the-environment">Configure the environment</a>
-> - <a href="#tutorial_create-a-qureg">Create a `Qureg`</a>
-> - <a href="#tutorial_prepare-an-initial-state">Prepare an initial state</a>
-> - <a href="#tutorial_apply-operators">Apply operators</a>
->   * <a href="#tutorial_controls">controls</a>
->   * <a href="#tutorial_paulis">paulis</a>
->   * <a href="#tutorial_matrices">matrices</a>
->   * <a href="#tutorial_circuits">circuits</a>
->   * <a href="#tutorial_measurements">measurements</a>
->   * <a href="#tutorial_decoherence">decoherence</a>
-> - <a href="#tutorial_perform-calculations">Perform calculations</a>
-> - <a href="#tutorial_report-the-results">Report the results</a>
-> - <a href="#tutorial_cleanup">Cleanup</a>
-> - <a href="#tutorial_finalise-quest">Finalise QuEST</a>
+> - [Initialise the environment](#tutorial_initialise-the-environment)
+> - [Configure the environment](#tutorial_configure-the-environment)
+> - [Create a `Qureg`](#tutorial_create-a-qureg)
+> - [Prepare an initial state](#tutorial_prepare-an-initial-state)
+> - [Apply operators](#tutorial_apply-operators)
+>   * [controls](#tutorial_controls)
+>   * [paulis](#tutorial_paulis)
+>   * [matrices](#tutorial_matrices)
+>   * [circuits](#tutorial_circuits)
+>   * [measurements](#tutorial_measurements)
+>   * [decoherence](#tutorial_decoherence)
+> - [Perform calculations](#tutorial_perform-calculations)
+> - [Report the results](#tutorial_report-the-results)
+> - [Cleanup](#tutorial_cleanup)
+> - [Finalise QuEST](#tutorial_finalise-quest)
 
 
 

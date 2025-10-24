@@ -18,33 +18,26 @@ QuEST can be compiled with [CMake](https://cmake.org/) to make a standalone exec
 Compiling is configured with variables supplied by the [`-D` flag](https://cmake.org/cmake/help/latest/command/add_definitions.html) to the [CMake CLI](https://cmake.org/cmake/help/latest/guide/user-interaction/index.html#command-line-cmake-tool). This page details _how_ to compile QuEST for varying purposes and hardwares.
 
 
-<!-- 
-    we are using explicit <a>, rather than markdown links,
-    for Doxygen compatibility. It cannot handle [](#sec)
-    links, and its <a> anchors are not scoped to files, so
-    we here prefix each name with the filename. Grr!
--->
-
 > **TOC**:
-> - <a href="#compile_basic">Basic</a>
-> - <a href="#compile_optimising">Optimising</a>
-> - <a href="#compile_linking">Linking</a>
-> - <a href="#compile_configuring">Configuring</a>
->    * <a href="#compile_location">Location</a>
->    * <a href="#compile_precision">Precision</a>
->    * <a href="#compile_compilers">Compilers</a>
->    * <a href="#compile_flags">Flags</a>
-> - <a href="#compile_examples">Examples</a>
-> - <a href="#compile_tests">Tests</a>
->    * <a href="#compile_v4">v4</a>
->    * <a href="#compile_v3">v3</a>
-> - <a href="#compile_multithreading">Multithreading</a>
-> - <a href="#compile_gpu-acceleration">GPU-acceleration</a>
->    * <a href="#compile_nvidia">NVIDIA</a>
->    * <a href="#compile_amd">AMD</a>
-> - <a href="#compile_cuquantum">cuQuantum</a>
-> - <a href="#compile_distribution">Distribution</a>
-> - <a href="#compile_multi-gpu">Multi-GPU</a>
+> - [Basic](#compile_basic)
+> - [Optimising](#compile_optimising)
+> - [Linking](#compile_linking)
+> - [Configuring](#compile_configuring)
+>    * [Location](#compile_location)
+>    * [Precision](#compile_precision)
+>    * [Compilers](#compile_compilers)
+>    * [Flags](#compile_flags)
+> - [Examples](#compile_examples)
+> - [Tests](#compile_tests)
+>    * [v4](#compile_v4)
+>    * [v3](#compile_v3)
+> - [Multithreading](#compile_multithreading)
+> - [GPU-acceleration](#compile_gpu-acceleration)
+>    * [NVIDIA](#compile_nvidia)
+>    * [AMD](#compile_amd)
+> - [cuQuantum](#compile_cuquantum)
+> - [Distribution](#compile_distribution)
+> - [Multi-GPU](#compile_multi-gpu)
 
 > **See also**:
 > - [`cmake.md`](cmake.md) for the full list of passable compiler variables.
@@ -194,7 +187,7 @@ where
 
 
 > [!IMPORTANT]
-> `USER_SOURCE` can be any relative or absolute path to a file, but `OUTPUT_EXE` must be strictly a filename and cannot contain subdirectories. See <a href="#compile_location">Location</a> to change the output directory.
+> `USER_SOURCE` can be any relative or absolute path to a file, but `OUTPUT_EXE` must be strictly a filename and cannot contain subdirectories. See [Location](#compile_location) to change the output directory.
 
 
 To compile multiple dependent files, such as
@@ -238,7 +231,7 @@ and the executable can thereafter be run (from within `build`) via
 ./myexec
 ```
 
-You can pass compiler and linker flags needed by your source files through the [`CMAKE_C_FLAGS`](https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html), [`CMAKE_CXX_FLAGS`](https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html) and [`CMAKE_EXE_LINKER_FLAGS`](https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS.html) CMake flags as detailed in the <a href="#compile_flags">below section</a>. Note however that if your configuration becomes complicated or your source code requires different `C`/`C++` standards than the QuEST source, you should consider separately compiling QuEST then linking it
+You can pass compiler and linker flags needed by your source files through the [`CMAKE_C_FLAGS`](https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html), [`CMAKE_CXX_FLAGS`](https://cmake.org/cmake/help/latest/variable/CMAKE_LANG_FLAGS.html) and [`CMAKE_EXE_LINKER_FLAGS`](https://cmake.org/cmake/help/latest/variable/CMAKE_EXE_LINKER_FLAGS.html) CMake flags as detailed in the [below section](#compile_flags). Note however that if your configuration becomes complicated or your source code requires different `C`/`C++` standards than the QuEST source, you should consider separately compiling QuEST then linking it
 to your project as a library!
 
 ------------------
@@ -332,7 +325,7 @@ The values inform types:
 
 
 > [!NOTE]
-> When enabling <a href="#compile_gpu-acceleration">GPU-acceleration</a>, the precision _must_ be set to `1` or `2` since GPUs do not support quad precision.
+> When enabling [GPU-acceleration](#compile_gpu-acceleration), the precision _must_ be set to `1` or `2` since GPUs do not support quad precision.
 
 <!-- permit doxygen to reference section -->
 <a id="compile_compilers"></a>
@@ -349,7 +342,7 @@ replacing `gcc` and `g++` with e.g. [`clang`](https://clang.llvm.org/), [`cl`](h
 These compilers will also be used as the _host compilers_ (around which bespoke compilers _wrap_) when enabling GPU-acceleration or distribution.
 
 > [!IMPORTANT]
-> It is _not_ correct to specify GPU and MPI compilers, like `nvcc` or `mpicc`, via the above flags. See the respective <a href="#compile_gpu-acceleration">GPU</a> and <a href="#compile_distribution">MPI</a> sections.
+> It is _not_ correct to specify GPU and MPI compilers, like `nvcc` or `mpicc`, via the above flags. See the respective [GPU](#compile_gpu-acceleration) and [MPI](#compile_distribution) sections.
 
 
 
@@ -469,7 +462,7 @@ and run as explained in [`launch.md`](launch.md#v3).
 
 ## Multithreading
 
-Multithreading allows multiple cores of a CPU, or even multiple connected CPUs, to cooperatively perform and ergo accelerate QuEST's expensive functions. Practically all modern computers have the capacity for, and benefit from, multithreading. Note it requires that the CPUs have shared memory (such as through [NUMA](https://learn.microsoft.com/en-us/windows/win32/procthread/numa-support)) and so ergo live in the same machine. CPUs on _different_ machines, connected via a network, can be parallelised over using <a href="#compile_distribution">distribution</a>.
+Multithreading allows multiple cores of a CPU, or even multiple connected CPUs, to cooperatively perform and ergo accelerate QuEST's expensive functions. Practically all modern computers have the capacity for, and benefit from, multithreading. Note it requires that the CPUs have shared memory (such as through [NUMA](https://learn.microsoft.com/en-us/windows/win32/procthread/numa-support)) and so ergo live in the same machine. CPUs on _different_ machines, connected via a network, can be parallelised over using [distribution](#compile_distribution).
 
 QuEST uses [OpenMP](https://www.openmp.org/) to perform multithreading, so accelerating QuEST over multiple CPUs or cores requires a compiler integrated with OpenMP. This is true of almost all major compilers - see a list of tested compilers in [`compilers.md`](compilers.md#cpu).
 <!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
@@ -637,7 +630,7 @@ cmake --build . --parallel
 ```
 
 <!-- @todo the below link fails in Doxygen; it's too stupid to recognise the section ref -->
-No other changes are necessary, nor does cuQuantum affect <a href="#compile_multi-gpu">hybridising</a> GPU acceleration and distribution. Launching the executable is the same as in the above section. See [`launch.md`](launch.md#gpu-acceleration).
+No other changes are necessary, nor does cuQuantum affect [hybridising](#compile_multi-gpu) GPU acceleration and distribution. Launching the executable is the same as in the above section. See [`launch.md`](launch.md#gpu-acceleration).
 
 
 

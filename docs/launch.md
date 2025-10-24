@@ -10,36 +10,29 @@
 Launching your [compiled](compile.md) QuEST application can be as straightforward as running any other executable, though some additional steps are needed to make use of hardware acceleration. This page how to launch your own QuEST applications on different platforms, how to run the examples and unit tests, how to make use of multithreading, GPU-acceleration, distribution and supercomputer job schedulers, and monitor the hardware utilisation.
 
 
-<!-- 
-    we are using explicit <a>, rather than markdown links,
-    for Doxygen compatibility. It cannot handle [](#sec)
-    links, and its <a> anchors are not scoped to files, so
-    we here prefix each name with the filename. Grr!
--->
-
 > **TOC**:
-> - <a href="#launch_examples">Examples</a>
-> - <a href="#launch_tests">Tests</a>
->    * <a href="#launch_v4">v4</a>
->    * <a href="#launch_v3">v3</a>
-> - <a href="#launch_configuring">Configuring</a>
-> - <a href="#launch_multithreading">Multithreading</a>
->    * <a href="#launch_choosing-threads">Choosing threads</a>
->    * <a href="#launch_monitoring-utilisation">Monitoring utilisation</a>
->    * <a href="#launch_improving-performance">Improving performance</a>
-> - <a href="#launch_gpu-acceleration">GPU-acceleration</a>
->    * <a href="#launch_launching">Launching</a>
->    * <a href="#launch_monitoring">Monitoring</a>
->    * <a href="#launch_configuring-1">Configuring</a>
->    * <a href="#launch_benchmarking">Benchmarking</a>
-> - <a href="#launch_distribution">Distribution</a>
->    * <a href="#launch_launching-1">Launching</a>
->    * <a href="#launch_configuring-2">Configuring</a>
->    * <a href="#launch_benchmarking-1">Benchmarking</a>
-> - <a href="#launch_multi-gpu">Multi-GPU</a>
-> - <a href="#launch_supercomputers">Supercomputers</a>
->    * <a href="#launch_slurm">SLURM</a>
->    * <a href="#launch_pbs">PBS</a>
+> - [Examples](#launch_examples)
+> - [Tests](#launch_tests)
+>    * [v4](#launch_v4)
+>    * [v3](#launch_v3)
+> - [Configuring](#launch_configuring)
+> - [Multithreading](#launch_multithreading)
+>    * [Choosing threads](#launch_choosing-threads)
+>    * [Monitoring utilisation](#launch_monitoring-utilisation)
+>    * [Improving performance](#launch_improving-performance)
+> - [GPU-acceleration](#launch_gpu-acceleration)
+>    * [Launching](#launch_launching)
+>    * [Monitoring](#launch_monitoring)
+>    * [Configuring](#launch_configuring-1)
+>    * [Benchmarking](#launch_benchmarking)
+> - [Distribution](#launch_distribution)
+>    * [Launching](#launch_launching-1)
+>    * [Configuring](#launch_configuring-2)
+>    * [Benchmarking](#launch_benchmarking-1)
+> - [Multi-GPU](#launch_multi-gpu)
+> - [Supercomputers](#launch_supercomputers)
+>    * [SLURM](#launch_slurm)
+>    * [PBS](#launch_pbs)
 
 
 
@@ -313,7 +306,7 @@ It is prudent to choose as many threads as your CPU(s) have total hardware threa
 <!-- the doxygen-doc hyperlink above includes a hash of the function name which should be unchanging! -->
 
 > [!NOTE]
-> When running <a href="#launch_distribution">distributed</a>, variable `OMP_NUM_THREADS` specifies the number of threads _per node_ and so should ordinarily be the number of hardware threads (or cores) _per machine_.
+> When running [distributed](#launch_distribution), variable `OMP_NUM_THREADS` specifies the number of threads _per node_ and so should ordinarily be the number of hardware threads (or cores) _per machine_.
 
 
 
@@ -383,7 +376,7 @@ and never specifies [`schedule`](https://rookiehpc.org/openmp/docs/schedule/inde
 
 
 > [!TIP]
-> Sometimes the memory bandwidth between different sockets of a machine is poor, and it is substantially better to exchange memory in bulk between their NUMA nodes, rather than through repeated random access. In such settings, it can be worthwhile to hybridise multithreading and distribution, even upon a single machine, partitioning same-socket threads into their own MPI node. This forces inter-socket communication to happen in-batch, via message-passing, at the expense of using _double_ total memory (to store buffers). See the <a href="#launch_distribution">distributed</a> section.
+> Sometimes the memory bandwidth between different sockets of a machine is poor, and it is substantially better to exchange memory in bulk between their NUMA nodes, rather than through repeated random access. In such settings, it can be worthwhile to hybridise multithreading and distribution, even upon a single machine, partitioning same-socket threads into their own MPI node. This forces inter-socket communication to happen in-batch, via message-passing, at the expense of using _double_ total memory (to store buffers). See the [distributed](#launch_distribution) section.
 
 
 
@@ -410,7 +403,7 @@ The compiled executable is launched like any other, via
 ./myexec
 ```
 
-Using _multiple_ available GPUs, regardless of whether they are local or distributed, is done through additionally enabling <a href="#launch_multi-gpu">distribution</a>.
+Using _multiple_ available GPUs, regardless of whether they are local or distributed, is done through additionally enabling [distribution](#launch_multi-gpu).
 
 
 
@@ -500,7 +493,7 @@ However, it _does_ mean codes which seeks to benchmark QuEST must be careful to 
 <!-- @todo the above link fails in Doxygen; it's too stupid to recognise the section ref -->
 
 > [!IMPORTANT]
-> Simultaneously using distribution _and_ GPU-acceleration introduces additional considerations detailed in the <a href="#launch_multi-gpu">proceeding section</a>.
+> Simultaneously using distribution _and_ GPU-acceleration introduces additional considerations detailed in the [proceeding section](#launch_multi-gpu).
 
 
 
@@ -518,7 +511,7 @@ or on some platforms (such as with Intel and Microsoft MPI):
 mpiexec -n 32 myexec.exe
 ```
 
-Some supercomputing facilities however may require custom or additional commands, like [SLURM](https://slurm.schedmd.com/documentation.html)'s [`srun`](https://slurm.schedmd.com/srun.html) command. See an excellent guide [here](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#distribution), and the job submission guide <a href="#launch_supercomputers">below</a>.
+Some supercomputing facilities however may require custom or additional commands, like [SLURM](https://slurm.schedmd.com/documentation.html)'s [`srun`](https://slurm.schedmd.com/srun.html) command. See an excellent guide [here](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/distribution-binding/#distribution), and the job submission guide [below](#launch_supercomputers).
 ```bash
 srun --nodes=8 --ntasks-per-node=4 --distribution=block:block
 ```
@@ -529,7 +522,7 @@ srun --nodes=8 --ntasks-per-node=4 --distribution=block:block
 > QuEST can only be distributed with a _power of `2`_ number of nodes, i.e. `1`, `2`, `4`, `8`, `16`, ...
 
 > [!NOTE]
-> When <a href="#launch_multithreading">multithreading</a> is also enabled, the environment variable `OMP_NUM_THREADS` 
+> When [multithreading](#launch_multithreading) is also enabled, the environment variable `OMP_NUM_THREADS` 
 > will determine how many threads are used by _each node_ (i.e. each MPI process). Ergo optimally
 > deploying to `8` machines, each with `64` CPUs (a total of `512` CPUs), might resemble:
 > ```bash
