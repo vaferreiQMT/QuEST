@@ -1,4 +1,4 @@
-# 🔖  Examples
+\page examples_readme 🔖  Examples
 
 <!--
   Examples and tutorials
