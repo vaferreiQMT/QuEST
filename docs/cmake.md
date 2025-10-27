@@ -14,7 +14,7 @@ Version 4 of QuEST includes reworked CMake to support library builds, CMake expo
 cmake -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/QuEST -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DENABLE_MULTITHREADING=ON -DENABLE_DISTRIBUTION=OFF ./
 ```
 
-Then, as detailed in [`compile.md`](compile.md), one need only move to the build directory and compile by invoking make:
+Then, as detailed in [<code>compile.md</code>](compile.md), one need only move to the build directory and compile by invoking make:
 
 ```
 cd build
@@ -59,7 +59,7 @@ make
 | `ENABLE_DEPRECATED_API` | (`OFF`), `ON` | As described above. When enabled alongside testing, the `v3 deprecated` unit tests will additionally be compiled and can be run from within `build` via `cd tests/deprecated; ctest`, or manually launched with `./tests/deprecated/dep_tests` (enabling distribution, as above).
 | `DOWNLOAD_CATCH2` | (`ON`), `OFF` | QuEST's tests require Catch2. By default, if you don't have Catch2 installed (or CMake doesn't find it) it will be downloaded from Github and built for you. If you don't want that to happen, for example because you _do_ have Catch2 installed, set this to `OFF`. |
 
-> As of `v4.2`, macros which configure the unit tests such as `TEST_MAX_NUM_QUBIT_PERMUTATIONS` have become environment variables specified before launch. See [`launch.md`](launch.md)
+> As of `v4.2`, macros which configure the unit tests such as `TEST_MAX_NUM_QUBIT_PERMUTATIONS` have become environment variables specified before launch. See [<code>launch.md</code>](launch.md)
 
 ---------------------------
 

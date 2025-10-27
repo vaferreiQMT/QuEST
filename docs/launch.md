@@ -47,7 +47,7 @@ Launching your [compiled](compile.md) QuEST application can be as straightforwar
 
 ## Examples {#launch_examples}
 
-> See [`compile.md`](#compile_examples) for instructions on compiling the examples.
+> See [<code>compile.md</code>](#compile_examples) for instructions on compiling the examples.
 
 
 The example source codes are located in [`examples/`](/examples/) with structure
@@ -121,7 +121,7 @@ Must pass single cmd-line argument:
 
 ## Tests {#launch_tests}
 
-> See [`compile.md`](#compile_tests) for instructions on compiling the `v4` and `v3` unit tests.
+> See [<code>compile.md</code>](#compile_tests) for instructions on compiling the `v4` and `v3` unit tests.
 
 
 ### v4 {#launch_v4}
@@ -253,7 +253,7 @@ Note the unit tests in the preceding section accept additional environment varia
 
 > [!NOTE]
 > Parallelising QuEST over multiple cores and CPUs requires first compiling with 
-> multithreading enabled, as detailed in [`compile.md`](#compile_multithreading). 
+> multithreading enabled, as detailed in [<code>compile.md</code>](#compile_multithreading). 
 
 
 ### Choosing threads {#launch_choosing-threads}
@@ -349,7 +349,7 @@ and never specifies [`schedule`](https://rookiehpc.org/openmp/docs/schedule/inde
 ## GPU-acceleration {#launch_gpu-acceleration}
 
 > [!NOTE]
-> Using GPU-acceleration requires first compiling QuEST with `CUDA` or `HIP` enabled (to utilise NVIDIA and AMD GPUs respectively) as detailed in [`compile.md`](#compile_gpu-acceleration).
+> Using GPU-acceleration requires first compiling QuEST with `CUDA` or `HIP` enabled (to utilise NVIDIA and AMD GPUs respectively) as detailed in [<code>compile.md</code>](#compile_gpu-acceleration).
 
 
 ### Launching {#launch_launching}
@@ -430,7 +430,7 @@ However, it _does_ mean codes which seeks to benchmark QuEST must be careful to 
 
 > [!NOTE]
 > Distributing QuEST over multiple machines requires first compiling with 
-> distribution enabled, as detailed in [`compile.md`](#compile_distribution). 
+> distribution enabled, as detailed in [<code>compile.md</code>](#compile_distribution). 
 
 > [!IMPORTANT]
 > Simultaneously using distribution _and_ GPU-acceleration introduces additional considerations detailed in the [proceeding section](#launch_multi-gpu).
@@ -523,7 +523,7 @@ It is ergo always prudent to explicitly call [`syncQuESTEnv()`](https://quest-ki
 ## Supercomputers {#launch_supercomputers}
 
 A QuEST executable is launched like any other in supercomputing settings, including when distributed.
-For convenience however, we offer some example [SLURM](https://slurm.schedmd.com) and [PBS](https://www.openpbs.org/) job submission scripts to deploy QuEST in various configurations. These examples assume QuEST and the user source have already been compiled, as guided in [`compile.md`](compile.md).
+For convenience however, we offer some example [SLURM](https://slurm.schedmd.com) and [PBS](https://www.openpbs.org/) job submission scripts to deploy QuEST in various configurations. These examples assume QuEST and the user source have already been compiled, as guided in [<code>compile.md</code>](compile.md).
 
 
 > [!NOTE]
