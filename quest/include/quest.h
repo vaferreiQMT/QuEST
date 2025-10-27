@@ -9,20 +9,6 @@
  * @defgroup api 📋 API
  */
 
-/**
- * @page apilink 📋 API
- * The API documentation can be viewed at @ref api.
- * 
- * We're working hard to move that page up one level. 😎
- */
-
-/**
- * @page testlink 🧪 Tests
- * 
- * The unit and integration tests can be viewed at @ref tests.
- * 
- * We're working hard to move that page up one level. 😎
- */
 
 #ifndef QUEST_H
 #define QUEST_H
