@@ -29,8 +29,6 @@ Compiling is configured with variables supplied by the [`-D` flag](https://cmake
 >    * [Flags](#compile_flags)
 > - [Examples](#compile_examples)
 > - [Tests](#compile_tests)
->    * [v4](#compile_v4)
->    * [v3](#compile_v3)
 > - [Multithreading](#compile_multithreading)
 > - [GPU-acceleration](#compile_gpu-acceleration)
 >    * [NVIDIA](#compile_nvidia)
@@ -380,8 +378,6 @@ as elaborated upon in [<code>launch.md</code>](#launch_examples).
 ## Tests {#compile_tests}
 
 
-### v4 {#compile_v4}
-
 To compile QuEST's latest unit and integration tests, use
 
 ```bash
@@ -393,18 +389,6 @@ cmake --build .
 ```
 This will compile an executable `tests` in subdirectory `build/tests/`, which can be run as explained in [<code>launch.md</code>](#launch_tests).
 
-
-### v3 {#compile_v3}
-
-QuEST's deprecated v3 API has its own unit tests which can be additionally compiled (_except_ on Windows) via
-```bash
-# configure
-cmake .. -D ENABLE_TESTING=ON -D ENABLE_DEPRECATED_API=ON
-
-# build
-cmake --build .
-```
-and run as explained in [<code>launch.md</code>](#launch_v3).
 
 
 

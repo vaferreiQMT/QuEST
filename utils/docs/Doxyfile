@@ -1040,6 +1040,7 @@ INPUT                  = . \
                          ./docs/cmake.md \
                          ./docs/launch.md \
                          ./docs/contributing.md \
+                         ./docs/v3.md \
                          ./docs \
                          ./examples/README.md \
                          ./examples \

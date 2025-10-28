@@ -12,14 +12,6 @@ QuEST is included into a `C` or `C++` project via
 #include "quest.h"
 ```
 
-> [!TIP]
-> Some of QuEST's deprecated `v3` API can be accessed by specifying `ENABLE_DEPRECATED_API` when [compiling](#compile_v3), or defining it before import, i.e. 
-> ```cpp
-> #define ENABLE_DEPRECATED_API 1
-> #include "quest.h"
-> ```
-> We recommend migrating to the latest `v4` API however as will be showcased below.
-
 Simulation typically proceeds as:
 1. [Initialise](https://quest-kit.github.io/QuEST/group__environment.html#gab89cfc1bf94265f4503d504b02cf54d4) the QuEST [environment](https://quest-kit.github.io/QuEST/group__environment.html), preparing available GPUs and networks.
 2. [Configure](https://quest-kit.github.io/QuEST/group__debug.html) the environment, such as through [seeding](https://quest-kit.github.io/QuEST/group__debug__seed.html).
@@ -50,6 +42,9 @@ Of course, the procedure is limited only by the programmers imagination `Â¯\_(ãƒ
 > - [Report the results](#tutorial_report-the-results)
 > - [Cleanup](#tutorial_cleanup)
 > - [Finalise QuEST](#tutorial_finalise-quest)
+
+> [!NOTE]
+> This page uses QuEST's updated API; for the deprecated `v3` API see [<code>v3.md</code>](v3.md).
 
 
 

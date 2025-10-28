@@ -13,8 +13,6 @@ Launching your [compiled](compile.md) QuEST application can be as straightforwar
 > **TOC**:
 > - [Examples](#launch_examples)
 > - [Tests](#launch_tests)
->    * [v4](#launch_v4)
->    * [v3](#launch_v3)
 > - [Configuring](#launch_configuring)
 > - [Multithreading](#launch_multithreading)
 >    * [Choosing threads](#launch_choosing-threads)
@@ -121,10 +119,8 @@ Must pass single cmd-line argument:
 
 ## Tests {#launch_tests}
 
-> See [<code>compile.md</code>](#compile_tests) for instructions on compiling the `v4` and `v3` unit tests.
+> See [<code>compile.md</code>](#compile_tests) for instructions on compiling the unit tests.
 
-
-### v4 {#launch_v4}
 
 QuEST's unit and integration tests are compiled into executable `tests` within the `tests/` subdirectory, and can be directly run from within the `build` folder via
 ```bash
@@ -210,30 +206,6 @@ The `v4` unit tests make use of the below, optional environment variables to con
 | `TEST_ALL_DEPLOYMENTS` | `1` | Whether unit tests will be run using all possible deployment combinations (i.e. OpenMP, CUDA, MPI) in-turn (`=1`), or only once using all available deployments simultaneously (`=0`). |
 
 
-### v3 {#launch_v3}
-
-The deprecated tests, when [compiled](#compile_v3), can be run from the `build` directory via
-```bash
-./tests/deprecated/dep_tests
-```
-which accepts the same [Catch2 CLI arguments](https://github.com/catchorg/Catch2/blob/devel/docs/command-line.md) as the `v4` tests above, and can be distributed the same way.
-
-To launch the tests with [CTest](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Testing%20With%20CMake%20and%20CTest.html), run
-```bash
-cd tests/deprecated
-ctest
-```
-
-> [!CAUTION]
-> The deprecated unit tests are non-comprehensive and the deprecated API should not be relied upon, for it may introduce
-> undetected corner-case bugs. Please only use the deprecated API and tests for assistance porting your application
-> from QuEST v3 to v4.
-
-
-
-
-
----------------------
 
 
 ## Configuring {#launch_configuring}
