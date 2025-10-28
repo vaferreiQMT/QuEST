@@ -1039,6 +1039,7 @@ INPUT                  = . \
                          ./docs/build.md \
                          ./docs/contributing.md \
                          ./docs/v3.md \
+                         ./docs/news.md \
                          ./docs \
                          ./examples/README.md \
                          ./examples \
