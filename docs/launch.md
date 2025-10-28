@@ -13,19 +13,15 @@ Launching your [compiled](compile.md) QuEST application can be as straightforwar
 > **TOC**:
 > - [Examples](#launch_examples)
 > - [Tests](#launch_tests)
-> - [Configuring](#launch_configuring)
 > - [Multithreading](#launch_multithreading)
->    * [Choosing threads](#launch_choosing-threads)
 >    * [Monitoring utilisation](#launch_monitoring-utilisation)
 >    * [Improving performance](#launch_improving-performance)
 > - [GPU-acceleration](#launch_gpu-acceleration)
 >    * [Launching](#launch_launching)
 >    * [Monitoring](#launch_monitoring)
->    * [Configuring](#launch_configuring-1)
 >    * [Benchmarking](#launch_benchmarking)
 > - [Distribution](#launch_distribution)
 >    * [Launching](#launch_launching-1)
->    * [Configuring](#launch_configuring-2)
 >    * [Benchmarking](#launch_benchmarking-1)
 > - [Multi-GPU](#launch_multi-gpu)
 > - [Supercomputers](#launch_supercomputers)
@@ -192,32 +188,6 @@ Test project /build
 Alas tests launched in this way cannot be deployed with distribution.
 
 
-#### Environment variables
-
-The `v4` unit tests make use of the below, optional environment variables to control their rigour and runtime.
-
-
-| Environment variable  | Default | Description |
-| -------- | ------- | ------- |
-| `TEST_NUM_QUBITS_IN_QUREG` | `6` | The number of qubits in the Qureg(s) undergoing unit testing. In addition to operation upon larger Quregs being exponentially slower, beware that more qubits permit more variations and permutations of input parameters like target qubits, factorially increasing the number of tests per operation. |
-| `TEST_MAX_NUM_QUBIT_PERMUTATIONS`  | `0` | The maximum number of control and target qubit permutations under which to unit test each function. Set to `0` (default) to test all permutations, or to a positive integer (e.g. `50`) to accelerate the unit tests. See more info [here](https://quest-kit.github.io/QuEST/group__testutilsconfig.html#gac5adcc10bd26c56f20344f5ae3d9ba41). |
-| `TEST_MAX_NUM_SUPEROP_TARGETS` | `4` | The maximum number of superoperator targets for which to unit test functions `mixKrausMap()` and `mixSuperOp()`. These are computationally equivalent to simulating unitaries with double the number of targets upon a density matrix. Set to `0` to test all sizes which is likely prohibitively slow, or to a positive integer (e.g. the default of `4`) to accelerate the unit tests. |
-| `NUM_MIXED_DEPLOYMENT_REPETITIONS` | `10` | The number of times (minimum of `1`) to repeat each random mixed-deployment unit test for each deployment combination. |
-| `TEST_ALL_DEPLOYMENTS` | `1` | Whether unit tests will be run using all possible deployment combinations (i.e. OpenMP, CUDA, MPI) in-turn (`=1`), or only once using all available deployments simultaneously (`=0`). |
-
-
-
-
-## Configuring {#launch_configuring}
-
-QuEST execution can be configured prior to runtime using the below [environment variables](https://en.wikipedia.org/wiki/Environment_variable).
-
-- [`PERMIT_NODES_TO_SHARE_GPU`](https://quest-kit.github.io/QuEST/group__modes.html#ga7e12922138caa68ddaa6221e40f62dda)
-- [`DEFAULT_VALIDATION_EPSILON`](https://quest-kit.github.io/QuEST/group__modes.html#ga55810d6f3d23de810cd9b12a2bbb8cc2)
-
-Note the unit tests in the preceding section accept additional environment variables.
-
-
 ---------------------
 
 
@@ -226,32 +196,6 @@ Note the unit tests in the preceding section accept additional environment varia
 > [!NOTE]
 > Parallelising QuEST over multiple cores and CPUs requires first compiling with 
 > multithreading enabled, as detailed in [<code>compile.md</code>](#compile_multithreading). 
-
-
-### Choosing threads {#launch_choosing-threads}
-
-The number of [threads](https://www.openmp.org/spec-html/5.0/openmpsu1.html) to use is decided before launching the compiled executable, using the [`OMP_NUM_THREADS`](https://www.openmp.org/spec-html/5.0/openmpse50.html) environment variable.
-
-```bash
-OMP_NUM_THREADS=32 ./myexec
-```
-```bash
-export OMP_NUM_THREADS=32
-./myexec
-```
-
-It is prudent to choose as many threads as your CPU(s) have total hardware threads or cores, which need not be a power of `2`. One can view this, and verify the number of available threads at runtime, by calling [`reportQuESTEnv()`](https://quest-kit.github.io/QuEST/group__environment.html#ga08bf98478c4bf21b0759fa7cd4a97496) which outputs a subsection such as
-```
-  [cpu]
-    numCpuCores.......10 per machine
-    numOmpProcs.......10 per machine
-    numOmpThrds.......32 per node
-```
-<!-- the doxygen-doc hyperlink above includes a hash of the function name which should be unchanging! -->
-
-> [!NOTE]
-> When running [distributed](#launch_distribution), variable `OMP_NUM_THREADS` specifies the number of threads _per node_ and so should ordinarily be the number of hardware threads (or cores) _per machine_.
-
 
 ### Monitoring utilisation {#launch_monitoring-utilisation}
 
@@ -375,14 +319,6 @@ Usage of GPU-acceleration can be (inadvisably) forced using [`createForcedQureg(
 
 
 
-### Configuring {#launch_configuring-1}
-
-There are a plethora of [environment variables](https://askubuntu.com/questions/58814/how-do-i-add-environment-variables) which be used to control the execution on [NVIDIA](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#env-vars) and [AMD](https://rocm.docs.amd.com/projects/HIP/en/docs-develop/reference/env_variables.html) GPUs. We highlight only some below.
-
-- Choose _which_ GPUs among multiple available to permit QuEST to utilise via [`CUDA_VISIBLE_DEVICES`](https://developer.nvidia.com/blog/cuda-pro-tip-control-gpu-visibility-cuda_visible_devices/) and [`ROCR_VISIBLE_DEVICES`](https://rocm.docs.amd.com/en/latest/conceptual/gpu-isolation.html).
-- Alternatively, set the order of selected GPUs (`CUDA_DEVICE_ORDER`) to `FASTEST_FIRST` or `PCI_BUS_ID`.
-  - In single-GPU mode, this informs which GPU QuEST will use (i.e. the first).
-  - In multi-GPU mode, this informs which local GPUs are used.
 
 
 
@@ -444,11 +380,6 @@ It is sometimes convenient (mostly for testing) to deploy QuEST across more node
 mpirun -np 1024 --oversubscribe ./mytests
 ```
 
-### Configuring {#launch_configuring-2}
-
-
-> TODO:
-> - detail environment variables
 
 
 ### Benchmarking {#launch_benchmarking-1}
@@ -473,7 +404,6 @@ It is ergo always prudent to explicitly call [`syncQuESTEnv()`](https://quest-ki
 > - explain GPUDirect
 > - explain CUDA-aware MPI
 > - explain UCX
-> - detail environment variables
 > - detail controlling local vs distributed gpus with device visibility
 
 
