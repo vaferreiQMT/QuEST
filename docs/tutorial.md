@@ -1,4 +1,4 @@
-# 🎓  Tutorial
+# 🎓  Tutorial {#tutorial}
 
 <!--
   Tutorial
@@ -23,7 +23,7 @@ Simulation typically proceeds as:
 8. Destroy any heap-allocated [`Qureg`](https://quest-kit.github.io/QuEST/group__qureg__destroy.html) or [matrices](https://quest-kit.github.io/QuEST/group__matrices__destroy.html).
 9. [Finalise](https://quest-kit.github.io/QuEST/group__environment.html#ga428faad4d68abab20f662273fff27e39) the QuEST environment.
 
-Of course, the procedure is limited only by the programmers imagination `¯\_(ツ)_/¯` Let's see an example of these steps below.
+Of course, the procedure is limited only by the programmers imagination `¯\_(ツ)_/¯`. Let's see an example of these steps below.
 
 
 > **TOC**:

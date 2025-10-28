@@ -1,4 +1,4 @@
-# 🛠️  Compile
+# Compile {#compile}
 
 <!--
   Instructions for compiling QuEST with CMake

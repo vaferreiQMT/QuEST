@@ -10,11 +10,12 @@
 > [!IMPORTANT]  
 > This page is under construction! In the meantime, feel free to open an issue, a discussion or a pull request, or reach out to `tyson.jones.input@gmail.com`.
 
-<!--- @todo -->
 
 > **TOC**:
 > - [Architecture](#contributing_architecture)
 > - [Style guide](#contributing_style-guide)
+> - [Documentation](#contributing_documentation)
+> - [Testing](#contributing_testing)
 
 ---------------
 
@@ -134,3 +135,18 @@ Some encouraged conventions include:
   - `atan2`
   - `min`
   - `max`
+
+
+---------------
+
+# Documentation {#contributing_documentation}
+
+TODO
+
+
+
+---------------
+
+# Testing {#contributing_testing}
+
+TODO

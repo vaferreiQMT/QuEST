@@ -1,10 +1,11 @@
-# 📰  News
+# 📰  News {#news}
 
 <!--
   Random assortment of QuEST-related news, in reverse chronology
   (this comment must be under the title for valid doxygen rendering)
 
   @author Tyson Jones
+  @author Vasco Ferreira (refactoring)
 -->
 
 #### Quest v4.2 released -- _October 2025_
