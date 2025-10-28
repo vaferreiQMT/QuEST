@@ -1035,10 +1035,8 @@ WARN_LOGFILE           =
 INPUT                  = . \
                          ./docs/v4.md \
                          ./docs/tutorial.md \
-                         ./docs/compile.md \
-                         ./docs/compilers.md \
-                         ./docs/cmake.md \
                          ./docs/launch.md \
+                         ./docs/build.md \
                          ./docs/contributing.md \
                          ./docs/v3.md \
                          ./docs \

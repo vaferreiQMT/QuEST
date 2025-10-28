@@ -37,18 +37,8 @@ Compiling is configured with variables supplied by the [`-D` flag](https://cmake
 > - [Distribution](#compile_distribution)
 > - [Multi-GPU](#compile_multi-gpu)
 
-> **See also**:
-> - [<code>cmake.md</code>](cmake.md) for the full list of passable compiler variables.
-> - [<code>compilers.md</code>](compilers.md) for a list of compatible and necessary compilers.
-> - [<code>qtechtheory.org</code>](https://quest.qtechtheory.org/download/) for help downloading the necessary compilers.
-> - [<code>launch.md</code>](launch.md) for a guide to executing the compiled application.
-
 > [!TIP]
 > QuEST's [Github Actions](https://github.com/QuEST-Kit/QuEST/actions/workflows/compile.yml) regularly test QuEST compilation using a broad combination of deployment settings; presently `108` combinations! The [`compile.yml`](/.github/workflows/compile.yml) workflow can serve as a concrete example of how to compile QuEST in a sanitised, virtual setting.
-
-> [!NOTE]
-> Afraid of CMake? See [`compile.sh`](/utils/scripts/compile.sh) for manual compilation (which we discourage!)
-
 
 ------------------
 
